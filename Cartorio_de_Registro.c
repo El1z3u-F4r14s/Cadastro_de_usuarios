@@ -137,7 +137,8 @@ int main() //Função principal que dá vida a tela inicial
 		printf("\tESCOLHA A OPÇÃO DESEJADA PARA INICIAR:\n\n\n");
 		printf("\t1 - CADASTRAR ALUNO\n");
 		printf("\t2 - CONSULTAR ALUNO\n");
-		printf("\t3 - DELETAR ALUNO\n\n\n");
+		printf("\t3 - DELETAR ALUNO\n");
+		printf("\t4 - SAIR DO SISTEMA\n\n\n");
 		printf("Opção:"); //Fim do menu
 	
 		scanf("%d" , &opcao); //Necessário para armazenar a escolha do usuário
@@ -157,6 +158,11 @@ int main() //Função principal que dá vida a tela inicial
 			case 3: //Chamada da função de deletar
 			deletar();
 			break; //Pausa na função
+			
+			case 4: //Chamada de função de saída do sistema
+			printf("\n\n\n\tATÉ LOGO :)\n\n\n");
+			return 0;
+			break;
 			
 			default: //Mensagem de erro quando o usuário escolher uma opção inválida
 			printf("\tEscolha uma opção válida\n\n");
