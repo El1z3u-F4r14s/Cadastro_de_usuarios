@@ -151,7 +151,7 @@ int main()
 		//tela inicial
 		printf("\t==========> CARTÓRIO DA EBAC <==========\n\n");
 		printf("\tDIGITE A OPÇÃO DESEJADA:\n\n");
-		printf("\t1 - CADASTRAR ALUNO\n\t2 - CONSULTAR ALUNO\n\t3 - DELETAR ALUNO\n\n");
+		printf("\t1 - CADASTRAR ALUNO\n\t2 - CONSULTAR ALUNO\n\t3 - DELETAR ALUNO\n\t4 - SAIR\n\n");
 		printf("\tOPÇÃO:\n");
 		//fim da tela inicial
 	
@@ -172,6 +172,11 @@ int main()
 			
 			case 3:
 			deletar(); //chamada da função de deletar
+			break;
+			
+			case 4: //chamada da opção para saída
+			printf("\n\n\n\t========== (:  ATÉ LOGO  :) ==========\n\n");
+			return 0;
 			break;
 			
 			default:					
