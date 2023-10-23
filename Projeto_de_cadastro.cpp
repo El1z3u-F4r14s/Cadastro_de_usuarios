@@ -18,7 +18,7 @@ int registro()
 	//final da criação de varáveis
 	
 	printf("\t==========> CADASTRO DE ALUNO <==========\n\n");
-	printf("Digite o CPF: "); //coleta do CPF a ser cadastrado
+	printf("\tDigite o CPF: "); //coleta do CPF a ser cadastrado
 	scanf("%s", cpf); //armazenando o dado coletado na string de CPF
 	
 	strcpy(arquivo, cpf); //responsável por criar os valores das strings
@@ -30,7 +30,7 @@ int registro()
 	fprintf(file,", ");
 	fclose(file); //fechando o arquivo atualizado
 	
-	printf("Digite o nome: ");
+	printf("\tDigite o nome: ");
 	scanf("%s",nome);
 	file = fopen(arquivo, "a");
 	fprintf(file,nome);
@@ -39,7 +39,7 @@ int registro()
 	fprintf(file,", ");
 	fclose(file);
 	
-	printf("Digite o sobrenome: ");
+	printf("\tDigite o sobrenome: ");
 	scanf("%s",sobrenome);
 	file = fopen(arquivo, "a");
 	fprintf (file,sobrenome);
@@ -48,7 +48,7 @@ int registro()
 	fprintf(file, ", ");
 	fclose(file);
 	
-	printf("Digite a função: ");
+	printf("\tDigite a função: ");
 	scanf("%s",funcao);
 	file = fopen(arquivo, "a");
 	fprintf(file,funcao);
@@ -71,7 +71,7 @@ int consulta()
 	char *token; //variável para dividir as strings em linhas.
 		
 	printf("\t==========> CONSULTA DE ALUNO <==========\n\n");
-	printf("Digite o CPF que deseja consultar: ");
+	printf("\tDigite o CPF que deseja consultar: ");
 	scanf("%s",cpf);
 	FILE *file;
 	file = fopen(cpf, "r"); //abrindo e lendo o arquivo com "r"
@@ -112,7 +112,7 @@ int deletar()
 	char cpf[40];
 	
 	printf("\t==========> DELETAR ALUNO <==========\n\n");
-	printf("Digite o CPF a ser deletado: ");
+	printf("\tDigite o CPF a ser deletado: ");
 	scanf("%s", cpf);
 			
 	FILE *file;
@@ -143,46 +143,66 @@ int main()
 	int opcao=0; //definindo variável para inteiro.
 	int laco=1;
 	
-	for(laco=1;laco=1;)
+	//inicio tela de loguin
+	char senhadigitada[10]="a";
+	int comparacao;
+
+	setlocale(LC_ALL, "portuguese"); //definindo a linguagem.
+	printf("\t==========> REGISTRO DE USUÁRIO | LOGIN <==========\n\n");
+	printf("\tDIGITE SUA SENHA: ");
+	scanf("%s", senhadigitada);
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
 	{
-		system("cls");
-		setlocale(LC_ALL, "portuguese"); //definindo a linguagem.
-	
-		//tela inicial
-		printf("\t==========> CARTÓRIO DA EBAC <==========\n\n");
-		printf("\tDIGITE A OPÇÃO DESEJADA:\n\n");
-		printf("\t1 - CADASTRAR ALUNO\n\t2 - CONSULTAR ALUNO\n\t3 - DELETAR ALUNO\n\t4 - SAIR\n\n");
-		printf("\tOPÇÃO:\n");
-		//fim da tela inicial
-	
-		scanf("%d", &opcao); //armazenando a escolha do usuário (nesse caso inteiro ["%d"]
-	
-		system("cls"); //função para limpar a tela.
-	
-		//inicio da seleção.
-		switch(opcao)
+		
+		for(laco=1;laco=1;)
 		{
-			case 1:
-			registro(); //chamada da função de cadastro
-			break;
+			system("cls");
+			setlocale(LC_ALL, "portuguese");
+	
+			//tela inicial
+			printf("\t==========> REGISTRO DE USUÁRIO <==========\n\n");
+			printf("\tDIGITE A OPÇÃO DESEJADA:\n\n");
+			printf("\t1 - CADASTRAR ALUNO\n\t2 - CONSULTAR ALUNO\n\t3 - DELETAR ALUNO\n\t4 - SAIR\n\n");
+			printf("\tOPÇÃO:\n");
+			//fim da tela inicial
+	
+			scanf("%d", &opcao); //armazenando a escolha do usuário (nesse caso inteiro ["%d"]
+	
+			system("cls"); //função para limpar a tela.
+	
+			//inicio da seleção.
+			switch(opcao)
+			{
+				case 1:
+				registro(); //chamada da função de cadastro
+				break;
 			
-			case 2:
-			consulta(); //chamada da função de consulta
-			break;
+				case 2:
+				consulta(); //chamada da função de consulta
+				break;
 			
-			case 3:
-			deletar(); //chamada da função de deletar
-			break;
+				case 3:
+				deletar(); //chamada da função de deletar
+				break;
 			
-			case 4: //chamada da opção para saída
-			printf("\n\n\n\t========== (:  ATÉ LOGO  :) ==========\n\n");
-			return 0;
-			break;
+				case 4: //chamada da opção para saída
+				printf("\n\n\n\t========== (:  ATÉ LOGO  :) ==========\n\n");
+				return 0;
+				break;
 			
-			default:					
-			printf("\tOpção inválida. Insira uma opção válida.\n\n");
-			system("pause");
-			break;
-		}//fim da seleção.		
-	}	
+				default:					
+				printf("\tOpção inválida. Insira uma opção válida.\n\n");
+				system("pause");
+				break;
+			}//fim da seleção.
+		}
+	}
+	
+	else
+		system("cls");
+		printf("\n\n\tSenha incorreta!\n\n");
+	//fim tela de loguin		
+		
 }
