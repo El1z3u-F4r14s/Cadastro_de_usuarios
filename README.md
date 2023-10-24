@@ -1,4 +1,4 @@
 # Cadastro de usuários
 PROJETO DE CADASTRO DE USUÁRIOS
-Versão < 1.0 >       
-Data <21/10/2023>
+Versão < 1.1 >       
+Data <23/10/2023>
